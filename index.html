@@ -1,0 +1,387 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гостевой дом "Семейный дворик" в Геленджике</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1920x1080?text=Семейный+дворик');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .slogan {
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            font-weight: bold;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover {
+            background: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+        }
+        
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.2rem;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        h2:after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #e67e22;
+            margin: 20px auto 0;
+        }
+        
+        .about-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            font-size: 1.2rem;
+        }
+        
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .advantage {
+            flex: 1 1 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .advantage:hover {
+            transform: translateY(-10px);
+        }
+        
+        .advantage h3 {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .rooms {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .room {
+            flex: 1 1 350px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .room img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .room-info {
+            padding: 25px;
+        }
+        
+        .room-info h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .room-type {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .lux {
+            background: #e74c3c;
+        }
+        
+        .econom {
+            background: #3498db;
+        }
+        
+        .amenities {
+            margin: 20px 0;
+        }
+        
+        .amenities li {
+            margin-bottom: 8px;
+            list-style-type: none;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .amenities li:before {
+            content: "✓";
+            color: #27ae60;
+            position: absolute;
+            left: 0;
+        }
+        
+        .price {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .contact-info {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+        }
+        
+        .contact-info a {
+            color: #e67e22;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .map {
+            height: 400px;
+            width: 100%;
+            margin-top: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #ddd;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 1.2rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">Гостевой дом "Семейный дворик"</h1>
+        <p class="slogan">Ваш уголок тишины у моря в Геленджике</p>
+        <div>
+            <a href="tel:+79881311616" class="btn">Позвонить нам</a>
+            <a href="https://wa.me/79881311616" class="btn whatsapp-btn">Написать в WhatsApp</a>
+        </div>
+    </header>
+    
+    <section id="about">
+        <h2>О нашем гостевом доме</h2>
+        <div class="about-text">
+            <p>Уютный гостевой дом «Семейный дворик» – ваш уголок тишины у моря!</p>
+            <p>Приглашаем вас в наш уютный гостевой дом, где царит атмосфера тепла и спокойствия. Здесь, в тихом зеленом районе, всего 15 минут пешком до моря, вы сможете отдохнуть от городской суеты, наслаждаясь пением птиц, тенью деревьев и ароматом цветов в нашем живописном дворике.</p>
+        </div>
+        
+        <div class="advantages">
+            <div class="advantage">
+                <h3>Семейный уют</h3>
+                <p>Вы почувствуете себя как в гостях у добрых друзей</p>
+            </div>
+            <div class="advantage">
+                <h3>Идеальное расположение</h3>
+                <p>Море рядом (15 минут пешком), но нет курортной суматохи</p>
+            </div>
+            <div class="advantage">
+                <h3>Живая природа</h3>
+                <p>Двор, где приятно читать книгу или завтракать на свежем воздухе</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="rooms">
+        <h2>Наши номера</h2>
+        
+        <div class="rooms">
+            <div class="room">
+                <img src="https://via.placeholder.com/600x400?text=Люкс+2-местный" alt="Люкс 2-местный">
+                <div class="room-info">
+                    <span class="room-type lux">Люкс</span>
+                    <h3>2-местный номер</h3>
+                    <ul class="amenities">
+                        <li>Сплит-система</li>
+                        <li>Собственный санузел</li>
+                        <li>Просторная комната</li>
+                        <li>Вид на дворик</li>
+                    </ul>
+                    <div class="price">Уточняйте стоимость</div>
+                    <a href="https://wa.me/79881311616" class="btn">Забронировать</a>
+                </div>
+            </div>
+            
+            <div class="room">
+                <img src="https://via.placeholder.com/600x400?text=Люкс+3-местный" alt="Люкс 3-местный">
+                <div class="room-info">
+                    <span class="room-type lux">Люкс</span>
+                    <h3>3-местный номер</h3>
+                    <ul class="amenities">
+                        <li>Сплит-система</li>
+                        <li>Собственный санузел</li>
+                        <li>Просторная комната</li>
+                        <li>Вид на дворик</li>
+                    </ul>
+                    <div class="price">Уточняйте стоимость</div>
+                    <a href="https://wa.me/79881311616" class="btn">Забронировать</a>
+                </div>
+            </div>
+            
+            <div class="room">
+                <img src="https://via.placeholder.com/600x400?text=Эконом+3-местный" alt="Эконом 3-местный">
+                <div class="room-info">
+                    <span class="room-type econom">Эконом</span>
+                    <h3>3-местный номер</h3>
+                    <ul class="amenities">
+                        <li>Сплит-система</li>
+                        <li>Общий санузел</li>
+                        <li>Уютная комната</li>
+                        <li>Вид на дворик</li>
+                    </ul>
+                    <div class="price">Уточняйте стоимость</div>
+                    <a href="https://wa.me/79881311616" class="btn">Забронировать</a>
+                </div>
+            </div>
+            
+            <div class="room">
+                <img src="https://via.placeholder.com/600x400?text=Эконом+4-местный" alt="Эконом 4-местный">
+                <div class="room-info">
+                    <span class="room-type econom">Эконом</span>
+                    <h3>4-местный номер</h3>
+                    <ul class="amenities">
+                        <li>Сплит-система</li>
+                        <li>Общий санузел</li>
+                        <li>Просторная комната</li>
+                        <li>Вид на дворик</li>
+                    </ul>
+                    <div class="price">Уточняйте стоимость</div>
+                    <a href="https://wa.me/79881311616" class="btn">Забронировать</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2>Как нас найти</h2>
+        <div class="contact-info">
+            <p><strong>Адрес:</strong> Геленджик, ул. Кутузова, 9</p>
+            <p><strong>Телефон:</strong> <a href="tel:+79881311616">+7 (988) 131-16-16</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/79881311616">+7 (988) 131-16-16</a></p>
+            <p>Мы ждем вас в гости!</p>
+        </div>
+        
+        <div class="map">
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1a0d2e0c7b8f8b8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8f8&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 Гостевой дом "Семейный дворик". Все права защищены.</p>
+        <p>Геленджик, ул. Кутузова, 9</p>
+        <p>Телефон: +7 (988) 131-16-16</p>
+    </footer>
+</body>
+</html>
