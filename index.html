@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -19,7 +19,7 @@
         }
         
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/Q0rrTX1/IMG-5424.jpg/1920x1080?text=Семейный+дворик');
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.ibb.co/Q0rrTX1/IMG-5424.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -29,12 +29,24 @@
             flex-direction: column;
             justify-content: center;
             padding: 0 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
         .logo {
             font-size: 2.8rem;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideDown 1s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
         
         .slogan {
@@ -44,6 +56,16 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            animation: slideUp 1s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .btn-container {
+            animation: fadeIn 1s ease-in 0.5s both;
         }
         
         .btn {
@@ -58,12 +80,43 @@
             font-weight: bold;
             margin: 10px;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
         }
         
         .btn:hover {
             background: #d35400;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .btn:after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.5);
+            opacity: 0;
+            border-radius: 100%;
+            transform: scale(1, 1) translate(-50%);
+            transform-origin: 50% 50%;
+        }
+        
+        .btn:focus:not(:active)::after {
+            animation: ripple 1s ease-out;
+        }
+        
+        @keyframes ripple {
+            0% {
+                transform: scale(0, 0);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(20, 20);
+                opacity: 0;
+            }
         }
         
         .whatsapp-btn {
@@ -78,6 +131,14 @@
             padding: 80px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         h2 {
@@ -95,6 +156,11 @@
             height: 4px;
             background: #e67e22;
             margin: 20px auto 0;
+            transition: width 0.5s;
+        }
+        
+        h2:hover:after {
+            width: 120px;
         }
         
         .about-text {
@@ -119,11 +185,12 @@
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
         
         .advantage:hover {
             transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
         
         .advantage h3 {
@@ -146,12 +213,23 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .room:hover {
+            transform: translateY(-5px);
         }
         
         .room img {
             width: 100%;
             height: 250px;
             object-fit: cover;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+        
+        .room img:hover {
+            transform: scale(1.05);
         }
         
         .room-info {
@@ -208,6 +286,127 @@
             text-align: center;
         }
         
+        /* Стили для галереи */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            aspect-ratio: 4/3;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover .caption {
+            transform: translateY(0);
+        }
+        
+        /* Лайтбокс */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #e67e22;
+        }
+        
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+        
+        .prev-btn {
+            left: 30px;
+        }
+        
+        .next-btn {
+            right: 30px;
+        }
+        
         .contact-info {
             text-align: center;
             font-size: 1.2rem;
@@ -221,9 +420,11 @@
         .contact-info a {
             color: #e67e22;
             text-decoration: none;
+            transition: color 0.3s;
         }
         
         .contact-info a:hover {
+            color: #d35400;
             text-decoration: underline;
         }
         
@@ -258,59 +459,38 @@
                 padding: 12px 30px;
                 font-size: 1rem;
             }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+            
+            .prev-btn {
+                left: 10px;
+            }
+            
+            .next-btn {
+                right: 10px;
+            }
+            
+            .close-btn {
+                top: 10px;
+                right: 20px;
+                font-size: 30px;
+            }
         }
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-}
-
-.gallery-item:hover {
-    transform: scale(1.03);
-}
-
-.gallery-item img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    display: block;
-}
-
-.caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.7);
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
-        @media (max-width: 768px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .gallery-item img {
-        height: 200px;
-    }
-}
     </style>
 </head>
 <body>
     <header>
         <h1 class="logo">Гостевой дом "Семейный дворик"</h1>
         <p class="slogan">Ваш уголок тишины у моря в Геленджике</p>
-        <div>
+        <div class="btn-container">
             <a href="tel:+79881311616" class="btn">Позвонить нам</a>
             <a href="https://wa.me/79881311616" class="btn whatsapp-btn">Написать в WhatsApp</a>
         </div>
@@ -344,7 +524,7 @@
         
         <div class="rooms">
             <div class="room">
-                <img src="https://i.ibb.co/9HWfrF01/IMG-1500.jpg/600x400?text=Стандарт+2-местный" alt="Стандарт 2-местный">
+                <img src="https://i.ibb.co/9HWfrF01/IMG-1500.jpg" alt="Стандарт 2-местный" class="room-img">
                 <div class="room-info">
                     <span class="room-type standart">Стандарт</span>
                     <h3>2-местный номер</h3>
@@ -359,7 +539,7 @@
             </div>
             
             <div class="room">
-                <img src="https://i.ibb.co/Rrv52LY/IMG-1499.jpg/600x400?text=Стандарт+3-местный" alt="Стандарт 3-местный">
+                <img src="https://i.ibb.co/Rrv52LY/IMG-1499.jpg" alt="Стандарт 3-местный" class="room-img">
                 <div class="room-info">
                     <span class="room-type standart">Стандарт</span>
                     <h3>3-местный номер</h3>
@@ -374,7 +554,7 @@
             </div>
             
             <div class="room">
-                <img src="https://i.ibb.co/PzPLPwhQ/IMG-1636.jpg/600x400?text=Эконом+3-местный" alt="Эконом 3-местный">
+                <img src="https://i.ibb.co/PzPLPwhQ/IMG-1636.jpg" alt="Эконом 3-местный" class="room-img">
                 <div class="room-info">
                     <span class="room-type econom">Эконом</span>
                     <h3>3-местный номер</h3>
@@ -389,7 +569,7 @@
             </div>
             
             <div class="room">
-                <img src="https://i.ibb.co/fdQhtxC6/IMG-1635.jpg/600x400?text=Эконом+4-местный" alt="Эконом 4-местный">
+                <img src="https://i.ibb.co/fdQhtxC6/IMG-1635.jpg" alt="Эконом 4-местный" class="room-img">
                 <div class="room-info">
                     <span class="room-type econom">Эконом</span>
                     <h3>4-местный номер</h3>
@@ -404,100 +584,101 @@
             </div>
         </div>
     </section>
+    
     <section id="gallery">
-    <h2>Фотогалерея</h2>
-    <div class="gallery-container">
-        <!-- Фото 1 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/27KXpJLk/image-02-06-25-10-29-1.jpg" alt="Стандарт">
-            <div class="caption">Стандарт</div>
-        </div>
+        <h2>Фотогалерея</h2>
+        <div class="gallery-container">
+            <!-- Фото 1 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/27KXpJLk/image-02-06-25-10-29-1.jpg" alt="Стандарт">
+                <div class="caption">Стандарт</div>
+            </div>
 
-        <!-- Фото 2 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/RkztzLcR/IMG-1301.jpg" alt="Стандарт">
-            <div class="caption">Стандарт</div>
-        </div>
+            <!-- Фото 2 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/RkztzLcR/IMG-1301.jpg" alt="Стандарт">
+                <div class="caption">Стандарт</div>
+            </div>
 
-        <!-- Фото 3 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/ZpC12jB3/IMG-1497.jpg" alt="Стандарт">
-            <div class="caption">Стандарт</div>
-        </div>
+            <!-- Фото 3 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/ZpC12jB3/IMG-1497.jpg" alt="Стандарт">
+                <div class="caption">Стандарт</div>
+            </div>
 
-        <!-- Фото 4 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/vxRZ4cBL/IMG-1498.jpg" alt="Стандарт">
-            <div class="caption">Стандарт</div>
-        </div>
-        
-        <!-- Фото 5 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/B29tbcyr/image-02-06-25-10-29-4.jpg" alt="Стандарт">
-            <div class="caption">Стандарт</div>
-        </div>
-        
-        <!-- Фото 6 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/Rrv52LY/IMG-1499.jpg" alt="Стандарт+доп.место">
-            <div class="caption">Стандарт+доп.место</div>
-        </div>
+            <!-- Фото 4 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/vxRZ4cBL/IMG-1498.jpg" alt="Стандарт">
+                <div class="caption">Стандарт</div>
+            </div>
+            
+            <!-- Фото 5 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/B29tbcyr/image-02-06-25-10-29-4.jpg" alt="Стандарт">
+                <div class="caption">Стандарт</div>
+            </div>
+            
+            <!-- Фото 6 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/Rrv52LY/IMG-1499.jpg" alt="Стандарт+доп.место">
+                <div class="caption">Стандарт+доп.место</div>
+            </div>
 
-        <!-- Фото 7 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/rRNb7bx1/IMG-5429.jpg" alt="Дворик">
-            <div class="caption">Дворик</div>
-        </div>
+            <!-- Фото 7 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/rRNb7bx1/IMG-5429.jpg" alt="Дворик">
+                <div class="caption">Дворик</div>
+            </div>
 
-        <!-- Фото 8 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/NgZKrtjp/IMG-1470.jpg" alt="Дворик">
-            <div class="caption">Дворик</div>
-        </div>
+            <!-- Фото 8 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/NgZKrtjp/IMG-1470.jpg" alt="Дворик">
+                <div class="caption">Дворик</div>
+            </div>
 
-        <!-- Фото 9 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/pB4WDYrz/IMG-1553.jpg" alt="Дворик">
-            <div class="caption">Дворик</div>
-        </div>
+            <!-- Фото 9 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/pB4WDYrz/IMG-1553.jpg" alt="Дворик">
+                <div class="caption">Дворик</div>
+            </div>
 
-        <!-- Фото 10 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/PzPLPwhQ/IMG-1636.jpg" alt="Эконом">
-            <div class="caption">Эконом</div>
-        </div>
+            <!-- Фото 10 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/PzPLPwhQ/IMG-1636.jpg" alt="Эконом">
+                <div class="caption">Эконом</div>
+            </div>
 
-        <!-- Фото 11 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/fdQhtxC6/IMG-1635.jpg" alt="Эконом">
-            <div class="caption">Эконом</div>
-        </div>
+            <!-- Фото 11 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/fdQhtxC6/IMG-1635.jpg" alt="Эконом">
+                <div class="caption">Эконом</div>
+            </div>
 
-        <!-- Фото 12 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/93tKhGWk/IMG-5461.jpg" alt="Эконом">
-            <div class="caption">Эконом</div>
-        </div>
+            <!-- Фото 12 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/93tKhGWk/IMG-5461.jpg" alt="Эконом">
+                <div class="caption">Эконом</div>
+            </div>
 
-        <!-- Фото 13 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/TVcFcsN/IMG-9920.jpg" alt="Общий сан.узел">
-            <div class="caption">Общий сан.узел</div>
-        </div>
+            <!-- Фото 13 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/TVcFcsN/IMG-9920.jpg" alt="Общий сан.узел">
+                <div class="caption">Общий сан.узел</div>
+            </div>
 
-        <!-- Фото 14 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/HTPJc3zJ/IMG-1579.jpg" alt="Общий сан.узел">
-            <div class="caption">Общий сан.узел</div>
-        </div>
+            <!-- Фото 14 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/HTPJc3zJ/IMG-1579.jpg" alt="Общий сан.узел">
+                <div class="caption">Общий сан.узел</div>
+            </div>
 
-        <!-- Фото 15 -->
-        <div class="gallery-item">
-            <img src="https://i.ibb.co/SX5KHbgC/IMG-1580.jpg" alt="Общий сан.узел">
-            <div class="caption">Общий сан.узел</div>
+            <!-- Фото 15 -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co/SX5KHbgC/IMG-1580.jpg" alt="Общий сан.узел">
+                <div class="caption">Общий сан.узел</div>
+            </div>
         </div>
-        
-</section>
+    </section>
     
     <section id="contact">
         <h2>Как нас найти</h2>
@@ -513,10 +694,126 @@
         </div>
     </section>
     
+    <!-- Лайтбокс -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <span class="nav-btn prev-btn">&lt;</span>
+        <span class="nav-btn next-btn">&gt;</span>
+        <div class="lightbox-content">
+            <img src="" alt="">
+        </div>
+    </div>
+    
     <footer>
-        <p>© 2025 Гостевой дом "Семейный дворик". Все права защищены.</p>
+        <p>©️ 2025 Гостевой дом "Семейный дворик". Все права защищены.</p>
         <p>Геленджик, ул. Кутузова, 9</p>
         <p>Телефон: +7 (988) 131-16-16</p>
     </footer>
+    
+    <script>
+        // Анимация появления секций при скролле
+        const sections = document.querySelectorAll('section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Лайтбокс для галереи
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const closeBtn = lightbox.querySelector('.close-btn');
+        const prevBtn = lightbox.querySelector('.prev-btn');
+        const nextBtn = lightbox.querySelector('.next-btn');
+        
+        // Собираем все изображения для лайтбокса
+        const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+        const roomImages = Array.from(document.querySelectorAll('.room-img'));
+        const allImages = [...galleryImages, ...roomImages];
+        
+        let currentImageIndex = 0;
+        
+        // Открытие лайтбокса
+        allImages.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                currentImageIndex = index;
+                lightbox.style.display = 'flex';
+                lightboxImg.src = img.src;
+                lightboxImg.alt = img.alt;
+                document.body.style.overflow = 'hidden';
+            });
+        });
+        
+        // Закрытие лайтбокса
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = '';
+        });
+        
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Навигация по изображениям
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+            lightboxImg.src = allImages[currentImageIndex].src;
+            lightboxImg.alt = allImages[currentImageIndex].alt;
+        });
+        
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImageIndex = (currentImageIndex + 1) % allImages.length;
+            lightboxImg.src = allImages[currentImageIndex].src;
+            lightboxImg.alt = allImages[currentImageIndex].alt;
+        });
+        
+        // Навигация клавиатурой
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    lightbox.style.display = 'none';
+                    document.body.style.overflow = '';
+                } else if (e.key === 'ArrowLeft') {
+                    currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
+                    lightboxImg.src = allImages[currentImageIndex].src;
+                    lightboxImg.alt = allImages[currentImageIndex].alt;
+                } else if (e.key === 'ArrowRight') {
+                    currentImageIndex = (currentImageIndex + 1) % allImages.length;
+                    lightboxImg.src = allImages[currentImageIndex].src;
+                    lightboxImg.alt = allImages[currentImageIndex].alt;
+                }
+            }
+        });
+        
+        // Плавный скролл для якорей
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
