@@ -3,25 +3,31 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Гостевой дом "Семейный дворик" в Геленджике | Уютный отдых у моря</title>
-    <meta name="description" content="Гостевой дом 'Семейный дворик' в Геленджике. Тихий зеленый район, 15 минут до моря. Уютные номера, семейная атмосфера. Тел: +7 (988) 131-16-16">
-    <meta name="keywords" content="Геленджик, гостевой дом, семейный дворик, отдых у моря, снять номер, гостевой дом Геленджик">
+    <title>Гостевой дом "Семейный дворик" | Геленджик</title>
+    <meta name="description" content="Гостевой дом 'Семейный дворик' в Геленджике. Графитовая элегантность и мятная свежесть. Уютные номера, 15 минут до моря. Тел: +7 (988) 131-16-16">
+    <meta name="keywords" content="Геленджик, гостевой дом, семейный дворик, отдых у моря, графит, мятный">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
         }
         
         body {
-            color: #333;
+            background: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.6;
-            background-color: #f9f9f9;
+            font-family: 'Raleway', 'Arial', sans-serif;
+        }
+        
+        /* Курсивные акценты */
+        h1, h2, h3, .logo, .slogan, .price, .room-type, .caption {
+            font-family: 'Playfair Display', serif;
         }
         
         header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('header-bg.jpg');
+            background: linear-gradient(rgba(26, 26, 26, 0.85), rgba(26, 26, 26, 0.85)), url('header-bg.jpg');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -32,6 +38,18 @@
             justify-content: center;
             padding: 0 20px;
             animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+        }
+        
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7ec8c4, #7ec8c4, transparent);
+            box-shadow: 0 0 20px #7ec8c4;
         }
         
         @keyframes fadeIn {
@@ -40,10 +58,17 @@
         }
         
         .logo {
-            font-size: 2.8rem;
+            font-size: 3.2rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 0 0 30px #7ec8c4, 0 0 10px rgba(126, 200, 196, 0.5);
             animation: slideDown 1s ease-out;
+            letter-spacing: 2px;
+            font-style: italic;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #7ec8c4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
         @keyframes slideDown {
@@ -52,13 +77,15 @@
         }
         
         .slogan {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            text-shadow: 0 0 15px #7ec8c4;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             animation: slideUp 1s ease-out;
+            font-style: italic;
+            letter-spacing: 1px;
         }
         
         @keyframes slideUp {
@@ -72,61 +99,40 @@
         
         .btn {
             display: inline-block;
-            background: #e67e22;
-            color: white;
-            padding: 15px 40px;
+            background: transparent;
+            color: #7ec8c4;
+            padding: 14px 38px;
             text-decoration: none;
-            border-radius: 30px;
-            font-size: 1.2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
             transition: all 0.3s;
-            font-weight: bold;
+            font-weight: 600;
             margin: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 2px solid #7ec8c4;
+            box-shadow: 0 0 10px rgba(126, 200, 196, 0.3);
             position: relative;
             overflow: hidden;
+            font-family: 'Raleway', sans-serif;
         }
         
         .btn:hover {
-            background: #d35400;
+            background: #7ec8c4;
+            color: #1a1a1a;
             transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
-        }
-        
-        .btn:after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 5px;
-            height: 5px;
-            background: rgba(255, 255, 255, 0.5);
-            opacity: 0;
-            border-radius: 100%;
-            transform: scale(1, 1) translate(-50%);
-            transform-origin: 50% 50%;
-        }
-        
-        .btn:focus:not(:active)::after {
-            animation: ripple 1s ease-out;
-        }
-        
-        @keyframes ripple {
-            0% {
-                transform: scale(0, 0);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(20, 20);
-                opacity: 0;
-            }
+            box-shadow: 0 0 30px #7ec8c4;
+            border-color: #7ec8c4;
         }
         
         .whatsapp-btn {
-            background: #25D366;
+            border-color: #25D366;
+            color: #25D366;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.3);
         }
         
         .whatsapp-btn:hover {
-            background: #128C7E;
+            background: #25D366;
+            color: #1a1a1a;
+            box-shadow: 0 0 30px #25D366;
         }
         
         section {
@@ -136,6 +142,7 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s, transform 0.6s;
+            position: relative;
         }
         
         section.visible {
@@ -146,30 +153,35 @@
         h2 {
             text-align: center;
             margin-bottom: 50px;
-            font-size: 2.2rem;
-            color: #2c3e50;
+            font-size: 2.4rem;
+            color: #7ec8c4;
             position: relative;
+            font-style: italic;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(126, 200, 196, 0.5);
         }
         
         h2:after {
             content: "";
             display: block;
-            width: 80px;
-            height: 4px;
-            background: #e67e22;
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #7ec8c4, #7ec8c4, transparent);
             margin: 20px auto 0;
             transition: width 0.5s;
+            box-shadow: 0 0 10px #7ec8c4;
         }
         
         h2:hover:after {
-            width: 120px;
+            width: 180px;
         }
         
         .about-text {
             text-align: center;
             max-width: 800px;
             margin: 0 auto 50px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         .advantages {
@@ -182,23 +194,27 @@
         
         .advantage {
             flex: 1 1 300px;
-            background: white;
+            background: rgba(30, 30, 30, 0.9);
+            backdrop-filter: blur(5px);
             padding: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid rgba(126, 200, 196, 0.3);
             transition: all 0.3s;
         }
         
         .advantage:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            border-color: #7ec8c4;
+            box-shadow: 0 0 30px rgba(126, 200, 196, 0.3);
         }
         
         .advantage h3 {
-            color: #e67e22;
+            color: #7ec8c4;
             margin-bottom: 15px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
+            font-style: italic;
+            text-shadow: 0 0 8px rgba(126, 200, 196, 0.5);
         }
         
         .rooms {
@@ -211,15 +227,17 @@
         
         .room {
             flex: 1 1 350px;
-            background: white;
-            border-radius: 10px;
+            background: rgba(30, 30, 30, 0.95);
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+            border: 1px solid rgba(126, 200, 196, 0.2);
+            transition: all 0.3s;
         }
         
         .room:hover {
             transform: translateY(-5px);
+            border-color: #7ec8c4;
+            box-shadow: 0 0 30px rgba(126, 200, 196, 0.2);
         }
         
         .room img {
@@ -239,27 +257,35 @@
         }
         
         .room-info h3 {
-            color: #2c3e50;
+            color: #7ec8c4;
             margin-bottom: 15px;
             font-size: 1.4rem;
+            font-style: italic;
         }
         
         .room-type {
             display: inline-block;
-            background: #e67e22;
-            color: white;
+            background: rgba(126, 200, 196, 0.2);
+            color: #7ec8c4;
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
             margin-bottom: 15px;
+            border: 1px solid #7ec8c4;
+            box-shadow: 0 0 8px rgba(126, 200, 196, 0.3);
+            font-style: italic;
         }
         
         .standart {
-            background: #27ae60;
+            border-color: #27ae60;
+            color: #27ae60;
+            box-shadow: 0 0 8px rgba(39, 174, 96, 0.3);
         }
         
         .econom {
-            background: #3498db;
+            border-color: #3498db;
+            color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
         }
         
         .amenities {
@@ -274,18 +300,21 @@
         }
         
         .amenities li:before {
-            content: "✓";
-            color: #27ae60;
+            content: "✦";
+            color: #7ec8c4;
             position: absolute;
             left: 0;
+            text-shadow: 0 0 5px #7ec8c4;
         }
         
         .price {
-            font-size: 1.4rem;
-            color: #2c3e50;
+            font-size: 1.5rem;
+            color: #7ec8c4;
             font-weight: bold;
             margin: 20px 0;
             text-align: center;
+            text-shadow: 0 0 10px rgba(126, 200, 196, 0.5);
+            font-style: italic;
         }
         
         /* Стили для галереи */
@@ -299,15 +328,16 @@
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-radius: 15px;
+            border: 1px solid rgba(126, 200, 196, 0.2);
             transition: all 0.3s;
             aspect-ratio: 4/3;
         }
         
         .gallery-item:hover {
             transform: scale(1.03);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: #7ec8c4;
+            box-shadow: 0 0 25px rgba(126, 200, 196, 0.3);
         }
         
         .gallery-item img {
@@ -328,12 +358,16 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0,0,0,0.7);
-            color: white;
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(5px);
+            color: #7ec8c4;
             padding: 10px;
             text-align: center;
             transform: translateY(100%);
             transition: transform 0.3s;
+            font-style: italic;
+            font-weight: 500;
+            border-top: 1px solid #7ec8c4;
         }
         
         .gallery-item:hover .caption {
@@ -348,7 +382,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.95);
             z-index: 1000;
             align-items: center;
             justify-content: center;
@@ -362,32 +396,35 @@
         .lightbox-content img {
             max-width: 100%;
             max-height: 90vh;
-            border-radius: 5px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border-radius: 10px;
+            border: 2px solid #7ec8c4;
+            box-shadow: 0 0 50px rgba(126, 200, 196, 0.5);
         }
         
         .close-btn {
             position: absolute;
             top: 20px;
             right: 30px;
-            color: white;
+            color: #7ec8c4;
             font-size: 40px;
             cursor: pointer;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            text-shadow: 0 0 10px #7ec8c4;
         }
         
         .close-btn:hover {
-            color: #e67e22;
+            color: #fff;
+            transform: scale(1.1);
         }
         
         .nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            color: white;
+            color: #7ec8c4;
             font-size: 40px;
             cursor: pointer;
-            background: rgba(0,0,0,0.5);
+            background: rgba(126, 200, 196, 0.1);
             width: 60px;
             height: 60px;
             display: flex;
@@ -395,10 +432,12 @@
             justify-content: center;
             border-radius: 50%;
             transition: all 0.3s;
+            border: 1px solid #7ec8c4;
         }
         
         .nav-btn:hover {
-            background: rgba(0,0,0,0.8);
+            background: rgba(126, 200, 196, 0.3);
+            box-shadow: 0 0 20px #7ec8c4;
         }
         
         .prev-btn {
@@ -420,46 +459,64 @@
         }
         
         .contact-info a {
-            color: #e67e22;
+            color: #7ec8c4;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: all 0.3s;
+            border-bottom: 1px dashed #7ec8c4;
         }
         
         .contact-info a:hover {
-            color: #d35400;
-            text-decoration: underline;
+            color: #fff;
+            text-shadow: 0 0 8px #7ec8c4;
+            border-bottom-color: #fff;
         }
         
         .map {
             height: 400px;
             width: 100%;
             margin-top: 30px;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid #ddd;
+            border: 1px solid rgba(126, 200, 196, 0.3);
+            box-shadow: 0 0 20px rgba(126, 200, 196, 0.2);
         }
         
         footer {
-            background: #2c3e50;
-            color: white;
+            background: #111;
+            color: #888;
             text-align: center;
             padding: 40px 20px;
             margin-top: 50px;
+            border-top: 1px solid rgba(126, 200, 196, 0.2);
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #7ec8c4, #7ec8c4, transparent);
+        }
+        
+        footer p:first-of-type {
+            color: #7ec8c4;
         }
         
         @media (max-width: 768px) {
             .logo {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             
             .slogan {
-                font-size: 1.2rem;
+                font-size: 1rem;
             }
             
             .btn {
-                padding: 12px 30px;
-                font-size: 1rem;
+                padding: 10px 25px;
+                font-size: 0.9rem;
             }
             
             .gallery-container {
@@ -485,6 +542,29 @@
                 right: 20px;
                 font-size: 30px;
             }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* Стилизация скроллбара */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #7ec8c4;
+            border-radius: 4px;
+            box-shadow: inset 0 0 6px rgba(126, 200, 196, 0.5);
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #5aa8a4;
         }
     </style>
 </head>
@@ -620,11 +700,10 @@
         </div>
         
         <div class="map">
-            <iframe src="https://yandex.ru/map-widget/v1/?ll=38.084895%2C44.571778&z=17&pt=38.084895%2C44.571778&whatshere%5Bpoint%5D=38.084895%2C44.571778&whatshere%5Bzoom%5D=17" width="100%" height="100%" frameborder="0"></iframe>
+            <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A1b4c2a8d9f6e3c7b5a1d8e4f9g2h5i3j6k8l0m1n2o3p4q5r6s7t8u9v0w1x2y3z&amp;source=constructor" width="100%" height="100%" frameborder="0"></iframe>
         </div>
     </section>
     
-    <!-- Лайтбокс -->
     <div id="lightbox" class="lightbox">
         <span class="close-btn">&times;</span>
         <span class="nav-btn prev-btn">&lt;</span>
@@ -635,13 +714,13 @@
     </div>
     
     <footer>
-        <p>©️ 2025 Гостевой дом "Семейный дворик". Все права защищены.</p>
+        <p>✦ Гостевой дом "Семейный дворик" ✦</p>
         <p>Геленджик, ул. Кутузова, 9</p>
         <p>Телефон: +7 (988) 131-16-16</p>
+        <p style="margin-top: 20px; font-size: 0.8rem;">©️ 2025 Все права защищены</p>
     </footer>
     
     <script>
-        // Анимация появления секций при скролле
         const sections = document.querySelectorAll('section');
         
         const observer = new IntersectionObserver((entries) => {
@@ -656,21 +735,18 @@
             observer.observe(section);
         });
         
-        // Лайтбокс для галереи
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('img');
         const closeBtn = lightbox.querySelector('.close-btn');
         const prevBtn = lightbox.querySelector('.prev-btn');
         const nextBtn = lightbox.querySelector('.next-btn');
         
-        // Собираем все изображения для лайтбокса
         const galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
         const roomImages = Array.from(document.querySelectorAll('.room-img'));
         const allImages = [...galleryImages, ...roomImages];
         
         let currentImageIndex = 0;
         
-        // Открытие лайтбокса
         allImages.forEach((img, index) => {
             img.addEventListener('click', () => {
                 currentImageIndex = index;
@@ -681,7 +757,6 @@
             });
         });
         
-        // Закрытие лайтбокса
         closeBtn.addEventListener('click', () => {
             lightbox.style.display = 'none';
             document.body.style.overflow = '';
@@ -694,7 +769,6 @@
             }
         });
         
-        // Навигация по изображениям
         prevBtn.addEventListener('click', (e) => {
             e.stopPropagation();
             currentImageIndex = (currentImageIndex - 1 + allImages.length) % allImages.length;
@@ -709,7 +783,6 @@
             lightboxImg.alt = allImages[currentImageIndex].alt;
         });
         
-        // Навигация клавиатурой
         document.addEventListener('keydown', (e) => {
             if (lightbox.style.display === 'flex') {
                 if (e.key === 'Escape') {
@@ -727,14 +800,11 @@
             }
         });
         
-        // Плавный скролл для якорей
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
